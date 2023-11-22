@@ -45,6 +45,7 @@ const InvoiceBulkEdit = () => {
 			alert("Make sure no required field is empty");
 		} else {
 			dispatch(updateInvoices({ editedInvoices: bulkEditInvoiceList }));
+			alert("Invoices edited succesfully");
 		}
 	};
 
@@ -109,16 +110,14 @@ const InvoiceBulkEdit = () => {
 							{bulkEditInvoiceList?.map((bulkEditInvoice, invoiceIndex) => (
 								<tr key={bulkEditInvoice.id}>
 									<td style={{ verticalAlign: "top" }}>
-										<div>
-											<Form.Control
-												required
-												key={bulkEditInvoice.issueDate}
-												type="date"
-												name="issueDate"
-												value={bulkEditInvoice.issueDate}
-												onChange={(e) => editField(e, invoiceIndex)}
-											/>
-										</div>
+										<Form.Control
+											required
+											key={bulkEditInvoice.issueDate}
+											type="date"
+											name="issueDate"
+											value={bulkEditInvoice.issueDate}
+											onChange={(e) => editField(e, invoiceIndex)}
+										/>
 									</td>
 									<td style={{ verticalAlign: "top" }}>
 										<Form.Control
